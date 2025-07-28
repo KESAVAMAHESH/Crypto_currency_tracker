@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: 'Julee';
+  src: url('/fonts/Julee-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ManufacturingConsent';
+  src: url('/fonts/ManufacturingConsent-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PermanentMarker';
+  src: url('/fonts/PermanentMarker-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SpecialGothicExpandedOne';
+  src: url('/fonts/SpecialGothicExpandedOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+.bounce {
+  animation: bounce 1s infinite;
+}
+@media (max-width: 767px) {
+  .app-title {
+    display: none;
+  }
+  
+  .mainContainer {
+    gap: 10px !important;
+  }
+
+ 
+  .leftPanel {
+    
+    flex: 0 0 35% !important;
+    
+ 
+    min-width: 120px !important; 
+  }
+
+  
+  .rightPanel {
+    padding: 12px !important;
+  }
+  
+  .rightContentTitle {
+    font-size: 18px !important;
+  }
+
+    .coin-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+       .sidebar ul {
+    display: flex;
+    flex-direction: column !important; 
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    max-height: 150px; 
+  }
+
+  .sidebar ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar ul li {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .coin-card {
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    padding: 12px;
+    width: 100% !important; 
+  }
+
+  .coin-card img {
+    width: 40px !important;
+    height: 40px !important;
+    flex-shrink: 0; 
+    margin: 0; 
+  }
+
+  
+  .coin-card > div {
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .coin-card h3 {
+    font-size: 14px !important; 
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+
+  .coin-card p {
+   
+    font-size: 12px !important; 
+    margin: 1px 0; 
+  }
+
+  .mainContainer {
+    flex-direction: column;
+  }
+
+  .leftPanel {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: 200px;
+    overflow-y: auto;
+  }
+
+  .rightPanel {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: calc(100vh - 200px - 60px); 
+  }
+    .sidebar ul li {
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+  }
+  .sidebar-title {
+    font-size: 10px !important;
+  }
+
+  .topBox-container {
+    flex-direction: row !important; 
+    justify-content: space-between !important; 
+    align-items: center !important;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .topBox-title {
+    font-size: 10px !important;
+    text-align: left;
+    flex: 1;
+
+  }
+
+  .topBox-dropdown {
+    width: auto !important;
+    max-width: 30cap;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    width: 50px !important;   
+    height: 30px !important;
+  }
+
+    .dropdown-select {
+    padding: 6px 10px !important;
+    font-size: 10px !important;
+    width: 100% !important;
+  }
+  .responsive-page {
+    flex-direction: column !important;
+  }
+
+  .left-pane,
+  .right-pane {
+    width: 100% !important;
+    margin-bottom: 1rem;
+    height: 100%;
+  }
+
+  .left-pane {
+    order: 1;
+  }
+
+  .right-pane {
+    order: 2;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .app-title {
+    display: inline;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.coin-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+
+
+.coin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid whitesmoke; 
+}
+
+.card-hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid whitesmoke;
+}
